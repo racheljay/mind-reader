@@ -1,18 +1,18 @@
 //Initialise variables for DOM
 const homeBtn = document.getElementById("home"),
-      backBtn = document.getElementById("back"),
-      nextBtn = document.getElementById("next"),
-      heading = document.getElementById("heading"),
-      pageNumber = document.getElementById("current-page"),
-      subHead = document.getElementById("description");
+    backBtn = document.getElementById("back"),
+    nextBtn = document.getElementById("next"),
+    heading = document.getElementById("heading"),
+    pageNumber = document.getElementById("current-page"),
+    subHead = document.getElementById("description");
 
 
 
 //click listeners
 
-homeBtn.addEventListener("click", () => {init()});
-backBtn.addEventListener("click", () => {back()});
-nextBtn.addEventListener("click", () => {next()});
+homeBtn.addEventListener("click", init);
+backBtn.addEventListener("click", () => { back() });
+nextBtn.addEventListener("click", () => { next() });
 
 
 
@@ -22,33 +22,33 @@ const pageContent = [{
     desc: "",
     pgnum: 1
 },
-     {
+{
     heading: "Pick a number from 1 - 99",
     desc: "when you have your number click next",
     pgnum: 2
 },
 
-     {
+{
     heading: "Add both digits together to get a new number",
     desc: "Ex: 14 is 1 + 4 = 5 <br> click next to proceed",
     pgnum: 3
 },
 
-    {
+{
     heading: "Subtract your new number from the original number",
     desc: "Ex: 14 - 5 = 9 <br> click to proceed",
     pgnum: 4
 },
 
-    {
-    heading: "0 - & <br> 1 - @ <br> 2 - $ <br> 3 - B <br> ...",
-    desc: "Find your new number. <br> Note the symbol beside the number",
+{
+    heading: "",
+    desc: "Find your new number. <br> Note the letter beside the number",
     pgnum: 5
 },
 
-    {
-    heading: "&",
-    desc: "Your symbol is: <br> &",
+{
+    heading: "",
+    desc: "Is that your letter?",
     pgnum: 6
 }];
 
@@ -67,14 +67,15 @@ var trick = (letters[rando()]);
 
 function stringlist() {
 
-for (let i = 0; i <= 99; i++) {
-    if(i % 9 === 0) {
-      list = i + " - " + trick;
-    } else if (i % 9 !== 0) {
-      list = i + " - " + letters[rando()];
+    for (let i = 0; i <= 99; i++) {
+        if (i % 9 === 0) {
+            list += i + " - " + trick + "<br>";
+        } else if (i % 9 !== 0) {
+            list += i + " - " + letters[rando()] + "<br>";
+        }
+        
     }
     return list;
-    }
 }
 //functions to run buttons
 
@@ -89,21 +90,37 @@ function init() {
 
 
 function next() {
-    if(state < 6) {
+    if (state < 6) {
         state++;
-    } 
+    }
     heading.innerHTML = pageContent[state].heading;
     subHead.innerHTML = pageContent[state].desc;
     pageNumber.innerHTML = pageContent[state].pgnum;
+    if (state === 4) {
+        let stringresult = stringlist();
+        console.log(stringresult)
+        heading.innerHTML = stringresult;
+    }
+    if (state === 5) {
+        heading.innerHTML = trick;
+    }
 }
 
 function back() {
-    if(state >= 0) {
+    if (state >= 0) {
         state--;
     }
     heading.innerHTML = pageContent[state].heading;
     subHead.innerHTML = pageContent[state].desc;
     pageNumber.innerHTML = pageContent[state].pgnum;
+    if (state === 4) {
+        let stringresult = stringlist();
+        console.log(stringresult)
+        heading.innerHTML = stringresult;
+    }
+    if (state === 5) {
+        heading.innerHTML = trick;
+    }
 }
 
 init();
