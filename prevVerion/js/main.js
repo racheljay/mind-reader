@@ -11,8 +11,8 @@ const homeBtn = document.getElementById("home"),
 //click listeners
 
 homeBtn.addEventListener("click", init);
-backBtn.addEventListener("click", () => { back() });
-nextBtn.addEventListener("click", () => { next() });
+backBtn.addEventListener("click", back);
+nextBtn.addEventListener("click", next);
 
 
 
@@ -72,8 +72,7 @@ function stringlist() {
             list += i + " - " + trick + "<br>";
         } else if (i % 9 !== 0) {
             list += i + " - " + letters[rando()] + "<br>";
-        }
-        
+        } 
     }
     return list;
 }
@@ -98,7 +97,6 @@ function next() {
     pageNumber.innerHTML = pageContent[state].pgnum;
     if (state === 4) {
         let stringresult = stringlist();
-        console.log(stringresult)
         heading.innerHTML = stringresult;
     }
     if (state === 5) {
@@ -115,7 +113,6 @@ function back() {
     pageNumber.innerHTML = pageContent[state].pgnum;
     if (state === 4) {
         let stringresult = stringlist();
-        console.log(stringresult)
         heading.innerHTML = stringresult;
     }
     if (state === 5) {
