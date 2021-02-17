@@ -61,7 +61,6 @@ function back() {
 
     <Content
       currentState={currentState}
-      next={next}
      />
 
       <div className="container">

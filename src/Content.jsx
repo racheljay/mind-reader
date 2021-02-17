@@ -15,7 +15,7 @@ function Content(props) {
 
     {
         heading: "Add both digits together to get a new number",
-        desc: "Ex: 14 is 1 + 4 = 5 <br> click next to proceed",
+        desc: "Ex: 14 is 1 + 4 = 5 click next to proceed",
         pgnum: 3
     },
 
@@ -60,6 +60,10 @@ function Content(props) {
     }
 
     return (
+        <>
+        {
+            // props.currentState >
+        }
         <div id="container">
             <div id="textbox">
                 <h5 className="text-center" id="heading">{pageContent[props.currentState].heading}</h5>
@@ -68,6 +72,7 @@ function Content(props) {
             <p className="text-center"><span id="current-page"></span><span>{pageContent[props.currentState].pgnum} of 6</span></p>
 
         </div>
+        </>
     );
 };
 
