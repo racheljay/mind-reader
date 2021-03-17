@@ -5,3 +5,6 @@
   overflow: scroll;
 }
 
+#desc {
+  height: 75px;
+}
