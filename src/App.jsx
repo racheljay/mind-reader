@@ -70,38 +70,42 @@ function stringlist() {
             list.push({num: i, letter: letters[rando()]})
         } 
     }
+    setSolution(trick)
     return list;
 }
 
 useEffect(() => {
   console.log("use effect")
   setListData(stringlist())
-  // console.log(listData[0].letter)
-
+  // console.log(stringlist())
 }, [])
 
   return (
     <div className="container">
-      <h1>Current Page {pageNum}</h1>
+      <h1>Current Page {pageNum} Answer = {solution}</h1>
 
-      <div className="container">
+      <div className="container border border-danger" id="box">
 
       {pageNum === 0 && <h1 className="display1">I can read your mind...</h1>}
 
       {pageNum > 0 && pageNum < 4 && <h1>{pageContent[(pageNum - 1)].heading}</h1>}
 
+    {listData.map((item, index) => {
+      if(pageNum === 4){
+        return(
+          <div data-spy="scroll"  key={index}>{item.num} - {item.letter}</div>
+          )
+        }
+      })}
       </div>
     
+
+
 
       <button className="btn btn-danger" onClick={clickHome}>Home</button>
       <button className="btn btn-danger" onClick={clickBack}>Back</button>
       <button className="btn btn-danger" onClick={clickNext}>Next</button>
       <p>Page {(pageNum + 1)} of 6 </p>
-    {listData.map((item, index) => {
-      return(
-        <div key={index}>{item.num} - {item.letter}</div>
-      )
-    })}
 
     </div>
   )
