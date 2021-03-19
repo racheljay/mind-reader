@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-// import Content from './Content';
 
 
 function App() {
 
   const [pageNum, setPageNum] = useState(0)
+  const [listData, setListData] = useState([])
+  const [solution, setSolution] = useState("")
 
-  const pages = ["<Page0/>", "<Page1/>"]
   const clickNext = () => {
     if (pageNum < 5) {
       setPageNum(pageNum + 1)
@@ -24,8 +24,12 @@ function App() {
 
   const pageContent = [
     {
+      heading: "I can read your mind...",
+      desc: []
+    },
+    {
       heading: "Pick a number from 1 - 99",
-      desc: ["when you have your number click next"],
+      desc: ["when you have your number click next", " 4"],
     },
 
     {
@@ -48,18 +52,69 @@ function App() {
       desc: ["Is that your letter?"],
     }];
 
+  //pair random letters with numbers
+  const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+  let list = [];
+
+  function rando() {
+    return Math.floor(Math.random() * (9 - 0 + 1) + 0);
+  }
+
+  var trick = (letters[rando()]);
+
+  function stringlist() {
+
+    for (let i = 0; i <= 99; i++) {
+      if (i % 9 === 0) {
+        // list += i + " - " + trick;
+        list.push({ num: i, letter: trick })
+      } else if (i % 9 !== 0) {
+        // list += i + " - " + letters[rando()];
+        list.push({ num: i, letter: letters[rando()] })
+      }
+    }
+    setSolution(trick)
+    return list;
+  }
+
+  useEffect(() => {
+    console.log("use effect")
+    setListData(stringlist())
+  }, [])
+
   return (
     <div className="container">
-      <h1>Current Page {pageNum}</h1>
+      <h1>Mystical Mind Reader</h1>
 
-      {pageNum === 0 && <h1 className="display1">I can read your mind...</h1>}
+      <div className="container border border-danger" id="box">
 
-      {pageNum > 0 && pageNum < 4 && <h1>{pageContent[(pageNum - 1)].heading}</h1>}
+
+        <h1 className="display4">{pageContent[(pageNum)].heading}</h1>
+
+        {listData.map((item, index) => {
+          if (pageNum === 4) {
+            return (
+              <h1 data-spy="scroll" key={index}>{item.num} - {item.letter}</h1>
+            )
+          }
+        })}
+        
+        {pageNum === 5 && <h1>{solution}</h1>}
+
+      </div>
+
+      <div id="desc">
+        {pageNum < 6 &&  pageContent[pageNum].desc.map((item, index) => {
+          return (
+            <p>{item}</p>
+          )
+        })}
+      </div>
 
       <button className="btn btn-danger" onClick={clickHome}>Home</button>
       <button className="btn btn-danger" onClick={clickBack}>Back</button>
       <button className="btn btn-danger" onClick={clickNext}>Next</button>
-      <p>Page {(pageNum + 1)} of 6</p>
+      <p>Page {(pageNum + 1)} of 6 </p>
 
     </div>
   )
