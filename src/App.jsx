@@ -53,7 +53,19 @@ function App() {
     }];
 
   //pair random letters with numbers
-  const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+  // const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+  const letters = [
+    "bi bi-stars",
+    "bi bi-umbrella",
+    "bi bi-wind",
+    "bi bi-water",
+    "bi bi-sun",
+    "bi bi-flower2",
+    "bi bi-bug-fill",
+    "bi bi-eye-fill",
+    "bi bi-eyeglasses",
+    "bi bi-gem"
+  ]
   let list = [];
 
   function rando() {
@@ -83,8 +95,8 @@ function App() {
   }, [])
 
   return (
-    <div className="container">
-      <h1>Mystical Mind Reader</h1>
+    <div className="container ">
+      <h1 className="justify-content-center">Mystical Mind Reader<i class="bi bi-stars"></i></h1>
 
       <div className="container border border-danger" id="box">
 
@@ -94,17 +106,17 @@ function App() {
         {listData.map((item, index) => {
           if (pageNum === 4) {
             return (
-              <h1 data-spy="scroll" key={index}>{item.num} - {item.letter}</h1>
+              <h1 data-spy="scroll" key={index}>{item.num} -&gt; <i class={item.letter}></i></h1>
             )
           }
         })}
-        
+
         {pageNum === 5 && <h1>{solution}</h1>}
 
       </div>
 
       <div id="desc">
-        {pageNum < 6 &&  pageContent[pageNum].desc.map((item, index) => {
+        {pageNum < 6 && pageContent[pageNum].desc.map((item, index) => {
           return (
             <p>{item}</p>
           )
