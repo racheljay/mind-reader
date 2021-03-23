@@ -24,7 +24,7 @@ function App() {
 
   const pageContent = [
     {
-      heading: "I can read your mind...",
+      heading: "I can  your mind...",
       desc: []
     },
     {
@@ -95,30 +95,33 @@ function App() {
   }, [])
 
   return (
-    <div className="row">
-      <div className="col-xl-3 col-lg-2"></div>
+    
+      
 
-      <div className="container text-center col-xl-6 col-lg-8">
-        <h1 className="m-3" id="title">Mystical Mind Reader</h1>
+      <div className="container mt-3 text-center" id="page">
+        <h1 className="d-none d-sm-inline m-2" id="title">Mystical Mind Reader</h1>
 
-        <div className="container text-center" id="box">
+        <div className="container mt-3 d-flex justify-content-center" id="box">
 
 
           <h1 className="display4 " id="main-text">{pageContent[(pageNum)].heading}</h1>
 
-          {listData.map((item, index) => {
-            if (pageNum === 4) {
-              return (
-                <h1 key={index}>{item.num} <i className="bi bi-arrow-right"></i> <i className={item.letter}></i></h1>
-              )
-            }
-          })}
+          <div>
 
+            {listData.map((item, index) => {
+              if (pageNum === 4) {
+                return (
+                  <h1 key={index}>{item.num} <i className="bi bi-arrow-right"></i> <i className={item.letter}></i></h1>
+                )
+              }
+            })}
+
+          </div>
           {pageNum === 5 && <h1 id="sol-text"><i className={solution}></i></h1>}
 
         </div>
 
-        <div id="desc">
+        <div className="mb-2"id="desc">
           {pageNum < 6 && pageContent[pageNum].desc.map((item, index) => {
             return (
               <p>{item}</p>
@@ -127,14 +130,14 @@ function App() {
           <p>Page {(pageNum + 1)} of 6 </p>
         </div>
 
-        <button className="btn btn-dark ml-3 mr-3" onClick={clickBack}><i className="bi bi-chevron-double-left"></i></button>
-        <button className="btn btn-dark ml-3 mr-3" onClick={clickHome}><i className="bi bi-house"></i></button>
-        <button className="btn btn-dark ml-3 mr-3" onClick={clickNext}><i className="bi bi-chevron-double-right"></i></button>
+        <button className="btn btn-secondary ml-3 mr-3" onClick={clickBack}><i className="bi bi-chevron-double-left"></i></button>
+        <button className="btn btn-secondary ml-3 mr-3" onClick={clickHome}><i className="bi bi-house"></i></button>
+        <button className="btn btn-secondary ml-3 mr-3" onClick={clickNext}><i className="bi bi-chevron-double-right"></i></button>
 
       </div>
-      <div className="col-xl-3 col-lg-2"></div>
+      
 
-    </div>
+    
   )
 }
 

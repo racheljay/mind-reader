@@ -9,13 +9,19 @@ body {
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #4e4376, #2b5876);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-weight: bolder;
+  font-weight: bold;
+  
 }
+
+
 
 #title{
   font-weight: bold;
   text-shadow: 3px 3px 15px rgb(219, 209, 209);
 }
+/* #page {
+  max-width: 500px;
+} */
 
 #box {
   height: 300px;
@@ -41,12 +47,12 @@ body {
   margin: -25px 0 0 -25px;
 }
 
-/* #box::-webkit-scrollbar {
+#box::-webkit-scrollbar {
   display: none;
-} */
+}
 
 #desc {
-  height: 110px;
+  height: 150px;
   font-weight: bolder;
   background-color: rgb(212, 209, 209);
   opacity: 0.5;
