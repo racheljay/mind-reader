@@ -1,19 +1,56 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 body {
-  font-family: 'Princess Sofia', cursive;
+  font-family: 'Major Mono Display', monospace;
+  background: #2b5876;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4e4376, #2b5876);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-weight: bolder;
+}
+
+#title{
+  font-weight: bold;
+  text-shadow: 3px 3px 15px rgb(219, 209, 209);
 }
 
 #box {
   height: 300px;
   overflow: scroll;
   background-color: rgb(212, 209, 209);
+  position: relative;
+  opacity: 0.5;
+  border-radius: 100px 100px 0px 0px;
 }
 
-#box::-webkit-scrollbar {
-  display: none;
+#main-text {
+  position: absolute;
+  top: 25%;
+  /* left: 50%; */
+  /* margin: -25px 0 0 -25px; */
+
 }
+
+#sol-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+
+/* #box::-webkit-scrollbar {
+  display: none;
+} */
 
 #desc {
-  height: 75px;
+  height: 110px;
+  font-weight: bolder;
+  background-color: rgb(212, 209, 209);
+  opacity: 0.5;
+  border-radius: 0px 0px 100px 100px;
+
+
 }

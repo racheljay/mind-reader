@@ -44,12 +44,12 @@ function App() {
 
     {
       heading: "",
-      desc: ["Find your new number.", "Note the symbol beside the number"],
+      desc: ["Scroll to find your new number.", "Note the symbol beside the number"],
     },
 
     {
       heading: "",
-      desc: ["Are you blown away?"],
+      desc: ["Mind reader knows all"],
     }];
 
   //pair random letters with numbers
@@ -96,22 +96,22 @@ function App() {
 
   return (
     <div className="container text-center">
-      <h1 className="">Mystical Mind Reader</h1>
+      <h1 className="m-3" id="title">Mystical Mind Reader</h1>
 
-      <div className="container" id="box">
+      <div className="container text-center" id="box">
 
 
-        <h1 className="display4">{pageContent[(pageNum)].heading}</h1>
+        <h1 className="display4 " id="main-text">{pageContent[(pageNum)].heading}</h1>
 
         {listData.map((item, index) => {
           if (pageNum === 4) {
             return (
-              <h1 data-spy="scroll" key={index}>{item.num} <i className="bi bi-arrow-right"></i> <i className={item.letter}></i></h1>
+              <h1 key={index}>{item.num} <i className="bi bi-arrow-right"></i> <i className={item.letter}></i></h1>
             )
           }
         })}
 
-        {pageNum === 5 && <h1><i className={solution}></i></h1>}
+        {pageNum === 5 && <h1 id="sol-text"><i className={solution}></i></h1>}
 
       </div>
 
@@ -121,12 +121,12 @@ function App() {
             <p>{item}</p>
           )
         })}
+      <p>Page {(pageNum + 1)} of 6 </p>
       </div>
 
-      <button className="btn btn-danger" onClick={clickHome}><i class="bi bi-house"></i></button>
-      <button className="btn btn-danger" onClick={clickBack}><i class="bi bi-chevron-double-left"></i></button>
-      <button className="btn btn-danger" onClick={clickNext}><i class="bi bi-chevron-double-right"></i></button>
-      <p>Page {(pageNum + 1)} of 6 </p>
+      <button className="btn btn-dark ml-3 mr-3" onClick={clickBack}><i className="bi bi-chevron-double-left"></i></button>
+      <button className="btn btn-dark ml-3 mr-3" onClick={clickHome}><i className="bi bi-house"></i></button>
+      <button className="btn btn-dark ml-3 mr-3" onClick={clickNext}><i className="bi bi-chevron-double-right"></i></button>
 
     </div>
   )
