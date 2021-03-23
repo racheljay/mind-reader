@@ -95,38 +95,44 @@ function App() {
   }, [])
 
   return (
-    <div className="container text-center">
-      <h1 className="m-3" id="title">Mystical Mind Reader</h1>
+    <div className="row">
+      <div className="col-xl-3 col-lg-2"></div>
 
-      <div className="container text-center" id="box">
+      <div className="container text-center col-xl-6 col-lg-8">
+        <h1 className="m-3" id="title">Mystical Mind Reader</h1>
+
+        <div className="container text-center" id="box">
 
 
-        <h1 className="display4 " id="main-text">{pageContent[(pageNum)].heading}</h1>
+          <h1 className="display4 " id="main-text">{pageContent[(pageNum)].heading}</h1>
 
-        {listData.map((item, index) => {
-          if (pageNum === 4) {
+          {listData.map((item, index) => {
+            if (pageNum === 4) {
+              return (
+                <h1 key={index}>{item.num} <i className="bi bi-arrow-right"></i> <i className={item.letter}></i></h1>
+              )
+            }
+          })}
+
+          {pageNum === 5 && <h1 id="sol-text"><i className={solution}></i></h1>}
+
+        </div>
+
+        <div id="desc">
+          {pageNum < 6 && pageContent[pageNum].desc.map((item, index) => {
             return (
-              <h1 key={index}>{item.num} <i className="bi bi-arrow-right"></i> <i className={item.letter}></i></h1>
+              <p>{item}</p>
             )
-          }
-        })}
+          })}
+          <p>Page {(pageNum + 1)} of 6 </p>
+        </div>
 
-        {pageNum === 5 && <h1 id="sol-text"><i className={solution}></i></h1>}
+        <button className="btn btn-dark ml-3 mr-3" onClick={clickBack}><i className="bi bi-chevron-double-left"></i></button>
+        <button className="btn btn-dark ml-3 mr-3" onClick={clickHome}><i className="bi bi-house"></i></button>
+        <button className="btn btn-dark ml-3 mr-3" onClick={clickNext}><i className="bi bi-chevron-double-right"></i></button>
 
       </div>
-
-      <div id="desc">
-        {pageNum < 6 && pageContent[pageNum].desc.map((item, index) => {
-          return (
-            <p>{item}</p>
-          )
-        })}
-      <p>Page {(pageNum + 1)} of 6 </p>
-      </div>
-
-      <button className="btn btn-dark ml-3 mr-3" onClick={clickBack}><i className="bi bi-chevron-double-left"></i></button>
-      <button className="btn btn-dark ml-3 mr-3" onClick={clickHome}><i className="bi bi-house"></i></button>
-      <button className="btn btn-dark ml-3 mr-3" onClick={clickNext}><i className="bi bi-chevron-double-right"></i></button>
+      <div className="col-xl-3 col-lg-2"></div>
 
     </div>
   )
