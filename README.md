@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# mind-reader
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A project created as a part of the Awesome Inc Web developer boot camp curriculum during week one of front end development. The original version of this project was written in vanilla HTML, CSS, and JavaScript, and later refactored, restyled and converted into React. The original core purpose of this project was to understand the importance of state and learning how to create a single page application without the aid of a framework.
 
-## Available Scripts
+# Original Pseudo Code:
 
-In the project directory, you can run:
+## Objects:
+- context box
+    - heading
+    - back button
+    - next button
+    - desc paragraph
+    - home button
+- Scroll nav at bottom
+    - home button
+    - pagination? scroll back and forth
 
-### `npm start`
+ Use Case: As a user I need to move back and forth through different pages. Each page will display different text. Buttons will change depending on what page I am on. I can hit next to go to the end, press restart, or use the bottom nav to navigate back and fourth.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    function Init(){
+        set default state
+        - set up the home screen (with page one)
+        - start button
+        - heading
+        - bottom nav
+    }
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    click listeners
+        - start button (change to reset) TODO
+        - next button
+        - nav area
+            - home
+            - left
+            - right
+    
+    function home() {
+        on click restores state for page 1
+    }
 
-### `npm test`
+    function next() {
+        change h1 ++
+        change paragraph ++
+        change page number ++
+        if page === 6 stop
+    }
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    function back() {
+        change h1 --
+        change paragraph --
+        change page number --
+        if page is === 0 stop
+    }
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
