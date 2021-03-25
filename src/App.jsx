@@ -24,7 +24,7 @@ function App() {
 
   const pageContent = [
     {
-      heading: "I can  your mind...",
+      heading: "I can  your read mind...",
       desc: []
     },
     {
